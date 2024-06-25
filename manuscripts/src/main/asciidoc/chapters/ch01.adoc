@@ -4,22 +4,82 @@
 
 O Java é, sem dúvida, uma das linguagens de programação de computadores mais importantes e amplamente adotadas do mundo. Mas isso não aconteceu do dia para a noite. Sua rica história e evolução ao longo dos anos que se seguiram desde sua primeira versão em 1995 trazem consigo um grande legado de inovação e sucesso que contribuiu de maneira inegável ao cenário da programação de software moderno.
 
-Origiunda de uma ideia inovadora em 1991 focada no desenvolvimento de software que seriam embarcados em vários equipamentos eletrônicos e eletrodomésticos como televisores, micro-ondas, controle remotos, entre outros, guiaram o Java para ser uma linguagem de programação para desenvolver aplicações robustas, portáveis, interoperáveis e seguras. Tais capacidades ganharam ainda mais força com o alvorecer da Wide World Web. A habilidade de baixar e executar  de maneira segura programas Java nos navegadores web (Java Applets) foram imprescindíveis para a adoção da linguagem naquela época. A forma que as applets disponibilizavam uma execução segura e robusta moldaram a forma que conhecemos a internet hoje.
+==== From Oak to Java
+
+Em 1991 a Sun Microsystems iniciou um projeto chamado Green Project apostando em uma ideia inovadora no desenvolvimento uma plataforma para programação de dispositivos eletrônicos e domésticos para um mundo conectado. Durante o projeto, um grande desafio precisava ser superado: criação uma plataforma de programação que fosse robusta, segura e portátil, pois o alvo seria uma grande variedade de dispositivos com CPUs diferentes.
+
+O projeto foi liderado por James Gosling, Mike Sheridan, e Patrick Naughton, e em 18 meses, foi desenvolvida a linguagem de programação que inicialmente se chamou *Oak*, mas em outono de 1992, por problemas de licenciamento, a linguagem foi renomeada para *Java*.
+
+A primeira versão do *Java* foi lançada em 1995, e contou com muitos contribuidores para a evolução no design da linguage, entre eles temos Bill Joy, Arthur van Hoff, Jonathan Payne, Frank Yellin e Tim Lindholm, que foram imprecindíveis para a maturação do protópipo original da linguagem.
+
+==== Write Once, Run Anywhere promise
+
+As premissas de prover uma plataforma de programação robusta, segura e portátil cunharam uma promessa que foi muito importante para o Java: "Write Once, Run Anywhere" (WORA).
+
+A ideia é ter a capacidade de executar o mesmo programa *Java* em vários dispositivos diferentes porém preservando seu comportamento e resultados. Implicações em lidar com multiplos dispositivos com diferentes arquiteturas de hardware e sistemas operacionais precisaram ser superados.
+
+Em resumo, os programas utilizam instruções da CPU do hardware em que se está executando para realizar suas computações. Essas instruções são específicas para cada tipo de CPU e sistema operacional, o que torna difícil executar o mesmo programa em diferentes dispositivos.
+
+Há algumas estratégias para fazer com que um programa seja executado em um ambiente computacional, entre elas temos:
+
+- Compilação: onde o código é compilada e traduzida para instruções específicas da CPU de um dado dispositivo; Programas compilados tentem a ter uma performance melhor comparado a programas interpretados, mas a desvantagem é que o código precisa ser recompilado para cada plataforma, o que para o cenário WORA não é ideal; Também a compilação tende a ser lenta, o que implica em uma produtividade não tão interessante em cenários onde a cadência de entregas é muito constante. Além disso, este modo tente a não prover otimização aos códigos compilados por não ter um ambiente intermediário que possa otimizar a execução do código; Quanto a segurança, se a vulnerabilidade for de natureza de execução de código, a compilação pode ser um ponto frágil, uma vez que o código compilado é executado diretamente no hardware;
+
+- Interpretação: onde o código é convertido para um modelo intermediário permitindo assim sua execução pelo interpretador. Todo o processo de validação da sintaxe é realizado em tempo de execução, o que pode tornar sua  execução lenta e ser passível de alterações indesejadas antes de sua execução; Outro detalhe é que erros de sintaxe só serão detectados em tempo de execução, o que pode ser um ponto frágil na distribuição da aplicação, uma vez que o hardware alvo pode necessitar ou precisar de instruções específicas para sua execução; Apesar de permitir a distribuição dos códigos da aplicação de maneira fácil, esses detalhes frágeis mencionados não contemplam um cenário de uma plataforma para a execução robusta e segura de aplicações;
+
+- Virtualização ou Híbrida: onde o código pré-compilado é executado em uma máquina virtual. Essa estratégia procura reunir o melhor dos dois mundos, onde o código é pré-compilado para um formato intermediário, detectando problemas de sintaxe e construção de forma mais rápida em tempo de desenvolvimento e, uma vez que parte da compilação já está realizada, a performance tende a ter uma melhora significativa no momento da execução  pela máquina virtual. A máquina virtual é a responsável por ser a cola entre o modelo intermediário com as instruções do hardware em execução.
+
+
+Os programas, uma vez escritos,
+
+
+foram fundamentais para o sucesso do Java. Mas como é que o Java conseguiu cumprir essa promessa? A resposta está na Java Virtual Machine (JVM), que é responsável por interpretar o código Java e executá-lo em qualquer plataforma. Isso permitiu que o código Java fosse escrito uma vez e executado em qualquer dispositivo que tivesse uma JVM instalada, cumprindo a promessa de "Write Once, Run Anywhere" (WORA).
+
+, ele deveria ser capaz de ser executado em multiples dispositivos. Um programa de computador, em resumo, se beneficiam de instruções da CPU do hardware em que se está executando para realizar suas computações.
+
+
+Isso significa que o código Java pode ser escrito uma vez e executado em qualquer dispositivo que tenha uma máquina virtual Java (JVM) instalada. Isso é possível graças à arquitetura da JVM, que é responsável por interpretar o código Java e executá-lo em qualquer plataforma.
+
+
+foram fundamentais para o sucesso do Java. Mas como é que o Java conseguiu cumprir essa promessa? A resposta está na Java Virtual Machine (JVM), que é responsável por interpretar o código Java e executá-lo em qualquer plataforma. Isso permitiu que o código Java fosse escrito uma vez e executado em qualquer dispositivo que tivesse uma JVM instalada, cumprindo a promessa de "Write Once, Run Anywhere" (WORA).
+
+
+A resposta está na Java Virtual Machine (JVM), que é responsável por interpretar o código Java e executá-lo em qualquer plataforma. Isso permitiu que o código Java fosse escrito uma vez e executado em qualquer dispositivo que tivesse uma JVM instalada, cumprindo a promessa de "Write Once, Run Anywhere" (WORA).
+
+
+Para que prover a portabilidade, execução robusta e segura, a plataforma Java conta com seu runtime: a Java Virtual Machine (JVM). Desta forma, os desenvolvedores podem escrever código Java uma vez e executá-lo em qualquer dispositivo que tenha uma JVM instalada, cumprindo a promessa de "Write Once, Run Anywhere" (WORA).
+
+Para que prover a portabilidade, execução robusta e segura, a plataforma Java conta com seu runtime: a Java Virtual Machine (JVM). Desta forma, os desenvolvedores podem escrever código Java uma vez e executá-lo em qualquer dispositivo que tenha uma JVM instalada, cumprindo a promessa de "Write Once, Run Anywhere" (WORA).
+
+que é responsável por interpretar o código Java e executá-lo em qualquer plataforma. Isso permitiu que o código Java fosse escrito uma vez e executado em qualquer dispositivo que tivesse uma JVM instalada, cumprindo a promessa de "Write Once, Run Anywhere" (WORA).
+
+
+Uma vez
+
+Com a premissa de construir uma plataforma robusta, segura e portátil, a Sun Microsystems desenvolveu a Java Virtual Machine (JVM), que é responsável por interpretar o código Java e executá-lo em qualquer plataforma. Isso permitiu que o código Java fosse escrito uma vez e executado em qualquer dispositivo que tivesse uma JVM instalada, cumprindo a promessa de "Write Once, Run Anywhere" (WORA).
+
+Uma das características, se não a mais importante, da plataforma Java é a promessa de "Write Once, Run Anywhere" (WORA). Isso significa que o código Java pode ser escrito uma vez e executado em qualquer dispositivo que tenha uma máquina virtual Java (JVM) instalada. Isso é possível graças à arquitetura da JVM, que é responsável por interpretar o código Java e executá-lo em qualquer plataforma.
+
+
+Com a necessidade de criar uma plataforma para desenvolvimento e execução de aplicações robustas, seguras, segura e portátil, foi preciso a criação de um ambiente de execução que promovesse um ambiente robusto, seguro que fosse capaz de interpretar o código Java e executá-lo em qualquer plataforma. A solução foi a criação uma máquina virtual específica, a Java Virtual Machine (JVM) e dessa forma, foi possível
+
+Uma das características mais marcantes do Java é a promessa de "Write Once, Run Anywhere" (WORA). Es
+
+Isso significa que o código Java pode ser escrito uma vez e executado em qualquer dispositivo que tenha uma máquina virtual Java (JVM) instalada. Isso é possível graças à arquitetura da JVM, que é responsável por interpretar o código Java e executá-lo em qualquer plataforma.
+
+O objetivo era criar uma linguagem de programação para dispositivos eletrônicos e eletrodomésticos. No entanto, a equipe de desenvolvimento logo percebeu que o Oak poderia ser usado para desenvolver software de propósito geral. Em 1995, a Sun Microsystems lançou o Java 1.0, que rapidamente se tornou uma das linguagens de programação mais populares do mundo.
+
+
+uma empresa de tecnologia que foi adquirida pela Oracle Corporation em 2010, iniciou o desenvolvimento de uma nova linguagem de programação chamada *Oak*. O objetivo era criar uma linguagem de programação para dispositivos eletrônicos e eletrodomésticos. No entanto, a equipe de desenvolvimento logo percebeu que o Oak poderia ser usado para desenvolver software de propósito geral. Em 1995, a Sun Microsystems lançou o Java 1.0, que rapidamente se tornou uma das linguagens de programação mais populares do mundo.
+
+O Java foi originalmente desenvolvido por James Gosling e sua equipe na Sun Microsystems em 1991. O projeto, inicialmente chamado de *Oak*, foi concebido para ser uma linguagem de programação para dispositivos eletrônicos e eletrodomésticos. No entanto, a equipe logo percebeu que o Oak poderia ser usado para desenvolver software de propósito geral e, em 1995, a Sun Microsystems lançou o Java 1.0, que rapidamente se tornou uma das linguagens de programação mais populares do mundo.
+
+
+Origiunda de uma ideia inovadora em 1991 focada no desenvolvimento de software que seriam embarcados em vários equipamentos eletrônicos e eletrodomésticos como televisores, micro-ondas, controle remotos, entre outros, guiaram o Java para ser uma linguagem de programação para desenvolver aplicações robustas, portáveis, interoperáveis e seguras.
+
+Tais capacidades ganharam ainda mais força com o alvorecer da Wide World Web. A habilidade de baixar e executar  de maneira segura programas Java nos navegadores web (Java Applets) foram imprescindíveis para a adoção da linguagem naquela época. A forma que as applets disponibilizavam uma execução segura e robusta moldaram a forma que conhecemos a internet hoje.
 
 Vale lembrar que a internet evoluiu, e que, por questões de segurança, tecnologias como Flash e plugins Java para navegadores web foram gradualmente caindo em desuso e a criação de novos padrões web foram necessários. Apesar de tais mudança, a maneira como a arquitetura e a liguagem foi contruída continuam sendo bem sucedidas e relevantes para o desenvolvimento de software moderno no backend.
 
-
-
-
-
-
-
-
-Oriund from an innovative idea in 1991 focused on software development for embedded devices such as set-top boxes, television, and so on.
-
-
-
-There is a rich history behind the success of this technology. Key features like portability, robustness, interoperability, and safety made Java the language programming most quickly widely adopted in the software development market in computing history.
 
 
 
