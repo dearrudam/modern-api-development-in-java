@@ -25,3 +25,4 @@ ifndef::sourcedir[:sourcedir: ../../../../../code-samples/src/main/java]
 
 :sectnums:
 include::chapters/ch01.adoc[]
+include::references.adoc[]
