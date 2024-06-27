@@ -36,5 +36,5 @@ A estratégia utilizada para a plataforma Java foi o desenvolvimento de uma Máq
 
 === Introdução aos princípios de desing de APIs
 
-=== Introdução a arquitetura de Micro serviços
+=== Introdução a arquitetura de Microservices
 
