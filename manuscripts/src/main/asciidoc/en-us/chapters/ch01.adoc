@@ -1,0 +1,43 @@
+== Part 1: Fundamentals of Java API Development
+
+=== Introduction to Java
+
+Java is undoubtedly one of the most important and widely adopted computer programming languages in the world. But it didn't happen overnight. Its rich history and evolution over the years since its first version in 1995 bring with it a great legacy of innovation and success that has contributed in an undeniable way to the modern software programming scene. The main objective of this chapter is to provide a brief overview of the history of Java, its main features, and the reasons why it has become so popular.
+
+==== From Oak to Java
+
+In 1991, Sun Microsystems started a project called Green Project, focusing on an innovative idea in developing a platform for programming electronic and domestic devices for a connected world. During the project, a major challenge needed to be overcome: creating a programming platform that was robust, secure and portable, as the target would be a wide variety of devices with different CPUs.
+
+The project was led by James Gosling, Mike Sheridan, and Patrick Naughton, and within 18 months, a programming language was developed, initially called Oak, but in autumn 1992, due to licensing problems, the language was renamed Java.
+
+The first version of Java was released in 1995, and it had many contributors to the evolution in the design of the language, among them we have Bill Joy, Arthur van Hoff, Jonathan Payne, Frank Yellin, and Tim Lindholm, who were indispensable for the maturation of the original prototype of the language.
+
+
+==== Write Once, Run Anywhere promise
+
+The promise of providing a robust, secure, and portable programming platform coined a promise that was very important for Java: "Write Once, Run Anywhere" (WORA).
+
+The idea is to have the ability to run the same *Java* program on multiple different devices while preserving its behavior and results. Implications in dealing with multiple devices with different hardware architectures and operating systems needed to be overcome.
+
+In summary, programs use instructions from the CPU of the hardware on which they are running to perform their computations. These instructions are specific to each type of CPU and operating system, making it difficult to run the same program on different devices.
+
+There are some strategies to make a program run in a computational environment, among them we have:
+
+- Compilation: where the code is compiled and translated into specific instructions for the CPU of a given device; Compiled programs tend to have better performance compared to interpreted programs, but the disadvantage is that the code needs to be recompiled for each platform, which is not ideal for the WORA scenario; Also, compilation tends to be a slow process, which implies not so interesting productivity in scenarios where the delivery cadence is very constant. In addition, this mode tends not to provide optimization to the compiled codes as there is no intermediate environment that can optimize the code execution; As for security, if the vulnerability is of the nature of code execution, compilation can be a weak point, since the compiled code is executed directly on the hardware;
+
+- Interpretation: where the code is converted to an intermediate model thus allowing its execution by the interpreter. The entire process of syntax validation is performed at runtime, which can make its execution slow and be susceptible to unwanted changes before its execution; Another detail is that syntax errors will only be detected at runtime, which can be a weak point in the application distribution, since the target hardware may need or require specific instructions for its execution; Despite allowing the distribution of the application codes easily, these fragile details mentioned do not contemplate a scenario of a platform for the robust and secure execution of applications;
+
+- Virtualization or Hybrid: where the pre-compiled code is executed on a virtual machine. This strategy seeks to bring together the best of both worlds, where the code is pre-compiled to an intermediate format, detecting syntax and construction problems more quickly in development time and, once part of the compilation is already done, performance tends to have a significant improvement at the time of execution by the virtual machine. At this point, the virtual machine can use execution optimizations based on the results of real-time computations. The virtual machine is responsible for being the glue between the intermediate model with the hardware execution instructions. From a security point of view, all execution can be isolated from the hardware, which can be a positive point for the execution of malicious codes even allowing the implementation of strategies such as digital signature and encryption that can guarantee the integrity of the executed code. This isolation can also promote a flexible way to make essential adjustments for execution on various types of hardware.
+
+The strategy used for the Java platform was the development of a Java Virtual Machine, the JVM.
+
+
+=== Introduction to APIs
+
+
+=== Introduction to Design Principles
+
+
+=== Introduction to Microservices
+
+

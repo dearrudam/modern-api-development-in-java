@@ -1,0 +1,40 @@
+== Parte 1: Fundamentos para o desenvolvimento de APIs utilizando Java
+
+=== Introdução ao Java
+
+O Java é, sem dúvida, uma das linguagens de programação de computadores mais importantes e amplamente adotadas do mundo. Mas isso não aconteceu do dia para a noite. Sua rica história e evolução ao longo dos anos que se seguiram desde sua primeira versão em 1995 trazem consigo um grande legado de inovação e sucesso que contribuiu de maneira inegável ao cenário da programação de software moderno. O objetivo principal deste capítulo é fornecer uma breve visão geral da história do Java, suas principais características e os motivos pelos quais ele se tornou tão popular.
+
+==== Do Oak para Java
+
+Em 1991 a Sun Microsystems iniciou um projeto chamado Green Project apostando em uma ideia inovadora no desenvolvimento uma plataforma para programação de dispositivos eletrônicos e domésticos para um mundo conectado. Durante o projeto, um grande desafio precisava ser superado: criação uma plataforma de programação que fosse robusta, segura e portátil, pois o alvo seria uma grande variedade de dispositivos com CPUs diferentes.
+
+O projeto foi liderado por James Gosling, Mike Sheridan, e Patrick Naughton, e em 18 meses, foi desenvolvida a linguagem de programação que inicialmente se chamou *Oak*, mas em outono de 1992, por problemas de licenciamento, a linguagem foi renomeada para *Java*.
+
+A primeira versão do *Java* foi lançada em 1995, e contou com muitos contribuidores para a evolução no design da linguage, entre eles temos Bill Joy, Arthur van Hoff, Jonathan Payne, Frank Yellin e Tim Lindholm, que foram imprecindíveis para a maturação do protópipo original da linguagem.
+
+==== A promessa "Write Once, Run Anywhere"
+
+As premissas de prover uma plataforma de programação robusta, segura e portátil cunharam uma promessa que foi muito importante para o Java: "Write Once, Run Anywhere" (WORA).
+
+A ideia é ter a capacidade de executar o mesmo programa *Java* em vários dispositivos diferentes porém preservando seu comportamento e resultados. Implicações em lidar com multiplos dispositivos com diferentes arquiteturas de hardware e sistemas operacionais precisaram ser superados.
+
+Em resumo, os programas utilizam instruções da CPU do hardware em que se está executando para realizar suas computações. Essas instruções são específicas para cada tipo de CPU e sistema operacional, o que torna difícil executar o mesmo programa em diferentes dispositivos.
+
+Há algumas estratégias para fazer com que um programa seja executado em um ambiente computacional, entre elas temos:
+
+- Compilação: onde o código é compilada e traduzida para instruções específicas da CPU de um dado dispositivo; Programas compilados tentem a ter uma performance melhor comparado a programas interpretados, mas a desvantagem é que o código precisa ser recompilado para cada plataforma, o que para o cenário WORA não é ideal; Também a compilação tende a ser lenta, o que implica em uma produtividade não tão interessante em cenários onde a cadência de entregas é muito constante. Além disso, este modo tente a não prover otimização aos códigos compilados por não ter um ambiente intermediário que possa otimizar a execução do código; Quanto a segurança, se a vulnerabilidade for de natureza de execução de código, a compilação pode ser um ponto frágil, uma vez que o código compilado é executado diretamente no hardware;
+
+- Interpretação: onde o código é convertido para um modelo intermediário permitindo assim sua execução pelo interpretador. Todo o processo de validação da sintaxe é realizado em tempo de execução, o que pode tornar sua  execução lenta e ser passível de alterações indesejadas antes de sua execução; Outro detalhe é que erros de sintaxe só serão detectados em tempo de execução, o que pode ser um ponto frágil na distribuição da aplicação, uma vez que o hardware alvo pode necessitar ou precisar de instruções específicas para sua execução; Apesar de permitir a distribuição dos códigos da aplicação de maneira fácil, esses detalhes frágeis mencionados não contemplam um cenário de uma plataforma para a execução robusta e segura de aplicações;
+
+- Virtualização ou Híbrida: onde o código pré-compilado é executado em uma máquina virtual. Essa estratégia procura reunir o melhor dos dois mundos, onde o código é pré-compilado para um formato intermediário, detectando problemas de sintaxe e construção de forma mais rápida em tempo de desenvolvimento e, uma vez que parte da compilação já está realizada, a performance tende a ter uma melhora significativa no momento da execução  pela máquina virtual. Nesse ponto, a máquina virtual pode utilizar otimizações de execução baseado nos resultados das computações em tempo real. A máquina virtual é a responsável por ser a cola entre o modelo intermediário com as instruções do hardware em execução. Do ponto de vista de segurança, toda a execução pode ser isolada do hardware, o que pode ser um ponto positivo para a execução de códigos maliciosos permitindo até a implementação de estratégias como assinatura digital e criptografia que podem garantir a integridade do código executado. Esse isolamento também pode promover uma flexível maneira de realizar ajustes essenciais para a execução em diversos tipos de hardwares.
+
+
+A estratégia utilizada para a plataforma Java foi o desenvolvimento de uma Máquina Virtual Java, a JVM.
+
+=== Uma introdução a APIs
+
+
+=== Introdução aos princípios de desing de APIs
+
+=== Introdução a arquitetura de Micro serviços
+

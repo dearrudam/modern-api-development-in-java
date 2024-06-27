@@ -1,0 +1,28 @@
+= Modern API Development With Java
+// :pdf-theme: ../../theme/jakartaee-theme.yml
+:authors:
+// :email: nosql-dev@eclipse.org
+:version-label!:
+:doctype: book
+// :license: Apache License v2.0
+:source-highlighter: coderay
+:toc: left
+:toclevels: 4
+:sectnumlevels: 5
+:sectanchors:
+:stem:
+ifdef::backend-pdf[]
+:pagenums:
+:numbered:
+// :title-logo-image: image:jakarta_ee_logo_schooner_color_stacked_default.png[pdfwidth=4.25in,align=right]
+endif::[]
+:icons: font
+ifndef::imagesdir[:imagesdir: images]
+ifndef::sourcedir[:sourcedir: ../../../../../code-samples/src/main/java]
+
+// :sectnums!:
+// include::chapters/license/license-alv2.asciidoc[]
+
+:sectnums:
+include::chapters/ch01.adoc[]
+include::references.adoc[]

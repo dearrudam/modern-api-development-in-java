@@ -33,40 +33,93 @@
                     </dependency>
                 </dependencies>
                 <executions>
+                    <!-- pt-br -->
                     <execution>
-                        <id>generate-book-doc</id>
+                        <id>pt-br-generate-book-doc</id>
                         <phase>generate-resources</phase>
                         <goals>
                             <goal>process-asciidoc</goal>
                         </goals>
                         <configuration>
                             <backend>pdf</backend>
-                            <outputFile>${gen-book-dir}/book-${project.version}.pdf</outputFile>
+                            <outputFile>${gen-book-dir}/book-pt-br-${project.version}.pdf</outputFile>
+
+                            <sourceDirectory>src/main/asciidoc/pt-br</sourceDirectory>
+                            <sourceDocumentName>main.adoc</sourceDocumentName>
+                            <embedAssets>true</embedAssets>
+                            <attributes>
+                                <source-highlighter>coderay</source-highlighter>
+                                <revnumber>${project.version}</revnumber>
+                                <revremark>${revremark}</revremark>
+                                <revdate>${revisiondate}</revdate>
+                            </attributes>
                         </configuration>
                     </execution>
                     <execution>
-                        <id>output-html</id>
+                        <id>pt-br-output-html</id>
                         <phase>generate-resources</phase>
                         <goals>
                             <goal>process-asciidoc</goal>
                         </goals>
                         <configuration>
                             <backend>html5</backend>
-                            <outputFile>${gen-book-dir}/book-${project.version}.html</outputFile>
+                            <outputFile>${gen-book-dir}/book-pt-br-${project.version}.html</outputFile>
+                            <sourceDirectory>src/main/asciidoc/pt-br</sourceDirectory>
+                            <sourceDocumentName>main.adoc</sourceDocumentName>
+                            <embedAssets>true</embedAssets>
+                            <attributes>
+                                <source-highlighter>coderay</source-highlighter>
+                                <revnumber>${project.version}</revnumber>
+                                <revremark>${revremark}</revremark>
+                                <revdate>${revisiondate}</revdate>
+                            </attributes>
+                        </configuration>
+                    </execution>
+
+                    <!-- en-us -->
+                    <execution>
+                        <id>en-us-generate-book-doc</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>process-asciidoc</goal>
+                        </goals>
+                        <configuration>
+                            <backend>pdf</backend>
+                            <outputFile>${gen-book-dir}/book-en-us-${project.version}.pdf</outputFile>
+
+                            <sourceDirectory>src/main/asciidoc/en-us</sourceDirectory>
+                            <sourceDocumentName>main.adoc</sourceDocumentName>
+                            <embedAssets>true</embedAssets>
+                            <attributes>
+                                <source-highlighter>coderay</source-highlighter>
+                                <revnumber>${project.version}</revnumber>
+                                <revremark>${revremark}</revremark>
+                                <revdate>${revisiondate}</revdate>
+                            </attributes>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>en-us-output-html</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>process-asciidoc</goal>
+                        </goals>
+                        <configuration>
+                            <backend>html5</backend>
+                            <outputFile>${gen-book-dir}/book-en-us-${project.version}.html</outputFile>
+                            <sourceDirectory>src/main/asciidoc/en-us</sourceDirectory>
+                            <sourceDocumentName>main.adoc</sourceDocumentName>
+                            <embedAssets>true</embedAssets>
+                            <attributes>
+                                <source-highlighter>coderay</source-highlighter>
+                                <revnumber>${project.version}</revnumber>
+                                <revremark>${revremark}</revremark>
+                                <revdate>${revisiondate}</revdate>
+                            </attributes>
                         </configuration>
                     </execution>
                 </executions>
-                <configuration>
-                    <sourceDirectory>src/main/asciidoc</sourceDirectory>
-                    <sourceDocumentName>main.adoc</sourceDocumentName>
-                    <embedAssets>true</embedAssets>
-                    <attributes>
-                        <source-highlighter>coderay</source-highlighter>
-                        <revnumber>${project.version}</revnumber>
-                        <revremark>${revremark}</revremark>
-                        <revdate>${revisiondate}</revdate>
-                    </attributes>
-                </configuration>
+
             </plugin>
         </plugins>
         <pluginManagement>

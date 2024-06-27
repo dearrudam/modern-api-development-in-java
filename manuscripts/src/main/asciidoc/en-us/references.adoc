@@ -1,0 +1,5 @@
+== References
+
+- [1] Java: The Complete Reference, Thirteenth Edition (English Edition) 13th Edition, by Herbert Schildt
+- [2] Mastering the Java Virtual Machine: An in-depth guide to JVM internals and
+performance optimization by Otavio Santana
