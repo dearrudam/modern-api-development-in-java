@@ -17,17 +17,56 @@ The first version of Java was released in 1995, and it had many contributors to 
 
 The promise of providing a robust, secure, and portable programming platform coined a promise that was very important for Java: "Write Once, Run Anywhere" (WORA).
 
-The idea is to have the ability to run the same *Java* program on multiple different devices while preserving its behavior and results. Implications in dealing with multiple devices with different hardware architectures and operating systems needed to be overcome.
+The idea is to have the ability to run the same *Java* program on multiple different devices while preserving its behavior and results avoiding the implications in dealing with multiple devices with different hardware architectures and operating systems.
 
-In summary, programs use instructions from the CPU of the hardware on which they are running to perform their computations. These instructions are specific to each type of CPU and operating system, making it difficult to run the same program on different devices.
+In summary, programs use instructions from the CPU of the hardware on which they are running to perform their computations. To simplify, the process of running a program can be divided into the following steps:
 
-There are some strategies to make a program run in a computational environment, among them we have:
+We write the program using a understandable language for us, the humans, and then we need to translate it to a language that the machine can understand, the machine code. The common ways to translate these codes are:
 
-- Compilation: where the code is compiled and translated into specific instructions for the CPU of a given device; Compiled programs tend to have better performance compared to interpreted programs, but the disadvantage is that the code needs to be recompiled for each platform, which is not ideal for the WORA scenario; Also, compilation tends to be a slow process, which implies not so interesting productivity in scenarios where the delivery cadence is very constant. In addition, this mode tends not to provide optimization to the compiled codes as there is no intermediate environment that can optimize the code execution; As for security, if the vulnerability is of the nature of code execution, compilation can be a weak point, since the compiled code is executed directly on the hardware;
+- Compilation: where the code is compiled and translated into specific instructions for the CPU of a given device;
+
+- Interpretation: where the code is converted to an intermediate model thus allowing its execution by the interpreter.
+
+
+// describe the compilation process to the machine code and the execution process of the machine code
+
+Some programs are interpreted by a software interpreter, which reads the program's instructions and executes them on the hardware: this is the case of interpreted programs.
+
+
+There are few kind of programs today: the compiled program, the interpreted program and the virtualized/hybrid program.
+
+
+
+These instructions are specific to each type of CPU and operating system, making it difficult to run the same program on different devices.
+
+
+- Compilation: where the code is compiled and translated into specific instructions for the CPU of a given device; Compiled programs tend to have better performance compared to interpreted programs, and they have the capability to reusing libraries from the SO of the device that they're running on,  but there is some disadvantage: compiled programs need to be compiled for each target platform, which means, many compiled versions for one only program version. Definitely, this scenario doesn't fit with the WORA promise. Also, the compilation tends to be a slow process, which implies not so interesting productivity in scenarios where the delivery cadence is very constant. In addition, this mode tends not to provide optimization to the compiled codes as there is no intermediate instruction representation provided with the code; As for security, if the vulnerability is of the nature of code execution, compilation can be a weak point, since the compiled code is executed directly on the hardware;
+
 
 - Interpretation: where the code is converted to an intermediate model thus allowing its execution by the interpreter. The entire process of syntax validation is performed at runtime, which can make its execution slow and be susceptible to unwanted changes before its execution; Another detail is that syntax errors will only be detected at runtime, which can be a weak point in the application distribution, since the target hardware may need or require specific instructions for its execution; Despite allowing the distribution of the application codes easily, these fragile details mentioned do not contemplate a scenario of a platform for the robust and secure execution of applications;
 
-- Virtualization or Hybrid: where the pre-compiled code is executed on a virtual machine. This strategy seeks to bring together the best of both worlds, where the code is pre-compiled to an intermediate format, detecting syntax and construction problems more quickly in development time and, once part of the compilation is already done, performance tends to have a significant improvement at the time of execution by the virtual machine. At this point, the virtual machine can use execution optimizations based on the results of real-time computations. The virtual machine is responsible for being the glue between the intermediate model with the hardware execution instructions. From a security point of view, all execution can be isolated from the hardware, which can be a positive point for the execution of malicious codes even allowing the implementation of strategies such as digital signature and encryption that can guarantee the integrity of the executed code. This isolation can also promote a flexible way to make essential adjustments for execution on various types of hardware.
+- Virtualization or Hybrid: where the pre-compiled code is executed on a virtual machine. This strategy seeks to bring together the best of both worlds, where the code is pre-compiled to an intermediate format, detecting syntax and construction problems more quickly in development time and, once part of the compilation is already done, performance tends to have a significant improvement at the time of execution by the virtual machine. At this point, the virtual machine can use execution optimizations based on the results of real-time computations. The virtual machine is responsible for being the glue between the intermediate model with the hardware execution instructions. From a security point of view, all execution can be isolated from the hardware, which can be a positive point for the execution of malicious codes even allowing the implementation of strategies such as digital signature and encryption that can guarantee the integrity of the executed code. This isolation can also promote a flexible way to make essential adjustments for execution on various types of hardware. There's no silver bullet, which means, virtual machines may need dedicated configurations depending on the architecture of the devices that they're running on.
+
+
+.Advantages x Disadvantages of Compilation, Interpretation, and Virtualization or Hybrid Strategies according to WORA promise
+[cols="1,1,1",options="header"]
+|===
+| Strategy | Advantages | Disadvantages
+
+| Compilation
+| Better performance (Execution), Reuse of the SO libraries(Execution)
+| Slow build process and the necessity to be recompiled for each platform (Building Process), No performance optimization during the runtime (Execution), By running directly on the hardware, vulnerabilities can expose the whole hardware to undesired attacks (Security)
+
+| Interpretation
+| Easy distribution (Building Process)
+| Slow execution because the syntax validation is needed on each execution (Execution), Susceptible to unwanted changes (Security), Syntax errors detected at runtime (Building Process), Specific instructions may be required for target hardware (Execution)
+
+| Virtualization or Hybrid
+| Intermediate format (Building Process), Quick syntax and construction problem detection (Building Process), Execution optimizations (Execution), Isolation from hardware (Security), Digital signature and encryption strategies (Security)
+| May require custom configurations to fit with the solution problems depending on the architecture of the devices they're running on (Building Process)
+
+|===
+
 
 The strategy used for the Java platform was the development of a Java Virtual Machine, the JVM.
 
