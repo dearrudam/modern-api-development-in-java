@@ -16,30 +16,75 @@ A primeira versão do *Java* foi lançada em 1995, e contou com muitos contribui
 
 As premissas de prover uma plataforma de programação robusta, segura e portátil cunharam uma promessa que foi muito importante para o Java: "Write Once, Run Anywhere" (WORA).
 
-Olhando para o cenário de desenvolvimento de software na época, a promessa de WORA era algo muito inovador e desafiador. A ideia era que um programa Java poderia ser escrito uma única vez e executado em "qualquer" dispositivo. O "qualquer" dispositivo exigirá uma explicação mais detalhada, que veremos mais a diante.
+Olhando para o cenário de desenvolvimento de software na época, a promessa de WORA era algo muito inovador e desafiador. A ideia era que um programa Java poderia ser escrito uma única vez e executado em "qualquer" dispositivo. O "qualquer" dispositivo exigirá uma explicação mais detalhada, que veremos a diante.
 
-Programas de computador são escritos em uma linguagem entendível pelo ser humano, e para que um computador possa executar um programa, ele precisa ser traduzido para uma linguagem que o computador entenda. Essa tradução pode ser feita de maneira adiantada realizando a faze de compilação, que traduz o código fonte para um código binário específico para um dado dispositivo, ou pode ser feita em tempo de execução, onde o código fonte é interpretado por um programa que executa as instruções do código fonte, o interpretador.
+Programas de computador são escritos em linguagens entendíveis pelos seres humano que é o que chamamos de códigos fonte. Para que computadores possam executá-los, eles precisam ser traduzidos para a linguagem que o computador entenda. Esse processo é o que chamamos de compilação.
 
-O processo de compilação exige que o código fonte seja traduzido para um código binário específico para um dado dispositivo, o que implica que o código compilado só poderá ser executado em dispositivos que possuam a mesma arquitetura de hardware. Por exemplo: um programa compilado para um dispositivo com arquitetura x86 não poderá ser executado em um dispositivo com arquitetura ARM de maneira direta, e vice-versa. Isso impossibilita o comprimento da promessa WORA, uma vez que não podemos reutilizar o mesmo programa em dispositivos com arquiteturas diferentes.
+O processo de compilação faz com que o código fonte seja traduzido para um código binário específico para um dado dispositivo, o que implica que o código compilado só poderá ser executado em dispositivos que possuam a mesma arquitetura de hardware. Por exemplo: um programa compilado para um dispositivo com arquitetura x86 não poderá ser executado em um dispositivo com arquitetura ARM de maneira direta, e vice-versa. Isso impossibilita o comprimento da promessa WORA, uma vez que não podemos reutilizar o mesmo programa em dispositivos com arquiteturas diferentes.
 
-Inicialmente o processo de interpretação de código parece ser uma solução para o problema de portabilidade, uma vez que o código fonte é interpretado em tempo de execução, e não é necessário a compilação do código fonte para um código binário específico para um dado dispositivo. Mas o processo de interpretação tem suas desvantagens, como a lentidão na execução do código, uma vez que o interpretador precisa interpretar o código fonte em tempo de execução, e a possibilidade de erros de sintaxe serem detectados em tempo de execução, o que pode ser um problema para a distribuição de programas.
+O processo de compilação é formado pelas seguintes fases:
 
-Pensando também no ponto de vista de segurança, o processo de interpretação pode ser um ponto frágil, uma vez que o código fonte é interpretado em tempo de execução, e não é possível garantir a integridade do código executado. Não tão distante, um programa compilado, caso contenha brechas de segurança também pode ser um ponto frágil, uma vez que o código compilado é executado diretamente no hardware.
+- Análise Léxica: dada uma determinada linguagem de programação, como a linguagem Java, o código fonte precisa seguir convenções para ele possa ser compilado. Esse processo de reconhecimento de sequências de caracteres do código fonte se faz necessário. Essas sequências reconhecidas são convertidas no que chamamos de tokens. Aqui é reconhecido identificadores, palavras-chaves, constantes, operadores, entre outros itens que foram declarados no código fonte. Esses tokens serão essenciais para a próxima fase, a análise sintática.
 
-A decisão foi fazer um "mix" dessas duas abordagens, e assim surgiu a ideia de uma máquina virtual Java (JVM), que é um programa que executa um código intermediário, que é gerado a partir do código fonte, e que pode ser interpretado ou compilado para um código binário específico para um dado dispositivo. A máquina virtual é a responsável por ser a cola entre o código intermediário e as instruções do hardware em execução.
+- Análise Sintática: após o reconhecimento dos tokens pela fase anterior, é preciso realizar uma análise estrutural gramatical do código, assegurando que todas as expressões e declarações seguem a sintaxe da linguaguem de programação, no nosso exemplo aqui a sintáxe da linguagem Java. Dessa análise é construída uma árvore sintática abstrata (AST). Com a AST será possível ir para a próxima fase que é a de verificar a semântica de nosso programa.
 
+- Análise Semântica: com a AST construída é preciso garantir que o código faz sentido do ponto de vista semântico, verificando estruturas de decisão, controle de laço, tipos e escopos das variáveis e o uso correto dos identificadores, etc.
 
+- Geração de Código Intermediário: uma vez que a AST estiver validada semanticamente, o compilador poderá gerar uma representação intermediária do código a partir da AST. Não iremos abordar as possíveis formas intermediárias, mas o que é importante saber é que a partir de sua concepção, o compilador poderá otimizar essas estruturas para ter uma maior eficiencia de execução, o que compete a próxima fase no processo de compilação;
 
-Em resumo, os programas utilizam instruções da CPU do hardware em que se está executando para realizar suas computações. Essas instruções precisão estar alinhadas com o tipo de arquitetura do hardware host que o programa será executado.
+- Otimização de código intermediário: nesta fase, o compilador pode utilizar diversas estratégias para realizar otimizações no código intermediário afim de melhorar a eficácia do programa sem alterar sua saída. Aqui pode acontecer eliminação de código morto, otimização de laços ou outras técnicas para reduzir o uso de recursos computacionais;
 
-- *Compilação*: onde o código é compilada e traduzida para instruções específicas da CPU de um dado dispositivo; Programas compilados tentem a ter uma performance melhor comparado a programas interpretados, mas a desvantagem é que o código precisa ser recompilado para cada plataforma, o que para o cenário WORA não é ideal; Também a compilação tende a ser lenta, o que implica em uma produtividade não tão interessante em cenários onde a cadência de entregas é muito constante. Além disso, este modo tente a não prover otimização aos códigos compilados por não ter um ambiente intermediário que possa otimizar a execução do código; Quanto a segurança, se a vulnerabilidade for de natureza de execução de código, a compilação pode ser um ponto frágil, uma vez que o código compilado é executado diretamente no hardware;
+- Geração de código de máquina: na maioria dos compiladores, essa é a última fase do processo. Aqui, o código intermediário otimizado na fase anterior é traduzido para código de máquina tendo como alvo uma determinada plataforma e arquitetura, resultando em um artefato executável.
 
-- *Interpretação:* onde o código é convertido para um modelo intermediário permitindo assim sua execução pelo interpretador. Todo o processo de validação da sintaxe é realizado em tempo de execução, o que pode tornar sua  execução lenta e ser passível de alterações indesejadas antes de sua execução; Outro detalhe é que erros de sintaxe só serão detectados em tempo de execução, o que pode ser um ponto frágil na distribuição da aplicação, uma vez que o hardware alvo pode necessitar ou precisar de instruções específicas para sua execução; Apesar de permitir a distribuição dos códigos da aplicação de maneira fácil, esses detalhes frágeis mencionados não contemplam um cenário de uma plataforma para a execução robusta e segura de aplicações;
+Em alguns compiladores há uma fase de otimização do código de máquina, onde tem como o intuito trazer uma uma melhor eficiência para o código agora olhando do ponto de vista do código de máquina.
 
-- *Virtualização ou Híbrida*: onde o código pré-compilado é executado em uma máquina virtual. Essa estratégia procura reunir o melhor dos dois mundos, onde o código é pré-compilado para um formato intermediário, detectando problemas de sintaxe e construção de forma mais rápida em tempo de desenvolvimento e, uma vez que parte da compilação já está realizada, a performance tende a ter uma melhora significativa no momento da execução  pela máquina virtual. Nesse ponto, a máquina virtual pode utilizar otimizações de execução baseado nos resultados das computações em tempo real. A máquina virtual é a responsável por ser a cola entre o modelo intermediário com as instruções do hardware em execução. Do ponto de vista de segurança, toda a execução pode ser isolada do hardware, o que pode ser um ponto positivo para a execução de códigos maliciosos permitindo até a implementação de estratégias como assinatura digital e criptografia que podem garantir a integridade do código executado. Esse isolamento também pode promover uma flexível maneira de realizar ajustes essenciais para a execução em diversos tipos de hardwares.
+O intuito aqui não é abordar como o processo de compilação acontece na integra, mas já é possível compreender que é um processo custoso mas necessário para a criação de programas de computado.
 
+Uma outra forma de executar um programa é realizando a interpretação do código fonte. Esse processo consiste em um programa que lê as instruções do programa e as executa diretamente no hardware. Esse tipo de programa é chamado de interpretador.
 
+Em resumo, o interpretador lê o código fonte, o que muitos chamam de scripts, e executa as fases com a análise léxica, sintática e semântica no momento da execução do código. Esse processo é executado todas as vezes que o código é interpretado. É evidente que temos uma perca de performance em comparação com o modelo já compilado previamente.
 
+Como sabemos, não existe _bala de prata_, e sempre temos que lidar com os trade-offs.
+
+Na compilação, problemas de sintaxe e semânticos são notificados em tempo de desenvolvimento e não em tempo de execução, o que é interessante pois nada deixa um usuário de um programa mais chateado é uma exceção em tempo de execução parando todo seu trabalho, não é?
+
+Programas compilados tentem a ter melhor performance perante programas interpretados e, dependendo da técnologia, poderá reutilizar bibliotecas nativas do sistema operacional do dispositivo hospedeiro. Pode até parecer algo interessante, mas isso é um problema para a promessa WORA. Normalmente, a compilação tem como alvo uma plataforma, arquitetura ou dispositivo específico, o que só afirma a possível imcompatibilidade com a promessa WORA.
+
+Outro detalhe interessante ressaltar é que programas compilados são códigos estáticos e não permitem otimizações após todo seu processo de compilação.
+
+E o que não podemos esquecer é que: cada mudança de código fonte irá resultar uma nova compilação.
+
+Olhando agora para uma abordagem utilizando interpretadores, inicialmente parece ser uma solução para o problema de portabilidade, mas não se engane, outros trade-offs precisam ser compreendidos e contornados. Toda a validação, analise léxica, sintatica e semântica serão feitos em tempo de execução. Uma vez que isso só ocorra no momento da execução, alterações intesejadas podem ocorrer no código fonte. Isso é, no mínimo, uma fragilidade no ponte de vista de segurança.
+
+Apesar de permitir a distribuição dos códigos da aplicação de maneira fácil, código fontes para um interpretador podem apresentar esses detalhes frágeis mencionados não contemplam um cenário de uma plataforma para a execução robusta e segura de aplicações.
+
+Por fim, para atender o _Run Anywhere_, o Java desenvolveu a Java Virtual Machine (JVM). Assim, o melhor dos dois mundos, a compilação e a interpretação, tomaram forma e fizeram com que a premissa _Write Once, Run Anywhere_ se tornar-se uma das características mais marcantes de toda a plataforma Java.
+
+No quesito compilação, o Java compila seus códigos fontes em instruções compreensíveis pela JVM, o que chamamos de *bytecode*. No quesito de interpretação, a JVM interpreta esses *bytecodes* executando-os no computador em que ela está instalado.
+
+Mas não se engane! A JVM fornece features cruciais e muito importantes na plataforma Java.
+
+==== Java Virtual Machine - JVM
+
+A JVM é o que permite que a promessa _Write Once, Run Anywhere_ ser algo real. A JVM provê várias features que tornam a plataforma Java tão robusta, segura e eficiente como a conhecemos atualmente. Entre essas features, podemos destacar:
+
+- *Independência de Plataforma*: A JVM permite a execução que qualquer código Java em qualquer dispositivo ou sistema operacional que tenha uma JVM compatível;
+
+- *Gerenciamento de memória automático*: A JVM permite a configuração de alocação de memória que será utilizada pela aplicação e gerencia automaticamente a memória, alocando e desalocando objetos em memória, realizando a coleta de lixo; A JVM detém vários Garbage Collectors com algoritmos e objetivos distintos que podem ser usado em cenários diversos.
+
+- *Otimizações em tempo de execução (Just in time compilation - JIT)*: a JVM pode melhorar o desempenho de um código Java compilando o bytecode para código nativo em tempo de execução. Uma funcionalidade ímpar perante a programas compilados de forma nativa;
+
+- *Suporte a Multithreading*: a JVM permite a execução concorrente de múltiplas threads, permitindo que programas Java possam aproveitar da melhor maneira possível arquiteturas com CPUs com múltiplos núcleos;
+
+- *Interface de Depuração*: A JVM oferece interfaces que permitem que ferramentas de desenvolvimento possam realizar a depuração de programas Java em execução, facilitando assim a análise, detecção e correção de erros;
+
+- *Carregamento dinâmico de classes*: A JVM permite o carregamento dinâmico de classes oferecendo flexibilidade e modulariedade no desenvolvimento de aplicações;
+
+- *Segurança*: através de um mecanismo de sandbox, a JVM impõe restrições ao código que será executado, limitando o acesso do código Java aos recursos do sistema;
+
+- *Suporte a Linguagens alternativas*: Além do Java, a JVM suporta várias outras linguagens de programação, como Kotlin, Scala e Clojure. A robustez da JVM permite que desenvolvedores possam utilizar linguagens com diferentes paradigmas de programação;
+
+Sem dúvida, a JVM é uma peça central no ecossitema Java. Ela provê um ambiente de execução robusta, segura, portável e eficiente para a execução de aplicações Java e de outras linguagem compatíveis.
 
 === Uma introdução a APIs
 
