@@ -4,6 +4,10 @@
 
 O Java é, sem dúvida, uma das linguagens de programação de computadores mais importantes e amplamente adotadas do mundo. Mas isso não aconteceu do dia para a noite. Sua rica história e evolução ao longo dos anos que se seguiram desde sua primeira versão em 1995 trazem consigo um grande legado de inovação e sucesso que contribuiu de maneira inegável ao cenário da programação de software moderno. O objetivo principal deste capítulo é fornecer uma breve visão geral da história do Java, suas principais características e os motivos pelos quais ele se tornou tão popular.
 
+==== Linhagem do Java
+
+De fato, as características que definem o Java vem, ou são respostas da necessidades que até então seus predecessores não atendiam. Java tem relação com C++, que é diretamente descendente de C. Do C, o Java derivou sua sintaxe e as características do paradigma de orientação de objetos tem grande influencia do C++. Com tudo, a criação da linguagem Java está profundamente ligada ao processo de refinamento e adaptação que vem ocorrendo no mundo das linguaguens de programação nas últimas décadas.
+
 ==== Do Oak para Java
 
 Em 1991 a Sun Microsystems iniciou um projeto chamado Green Project apostando em uma ideia inovadora no desenvolvimento uma plataforma para programação de dispositivos eletrônicos e domésticos para um mundo conectado. Durante o projeto, um grande desafio precisava ser superado: criação uma plataforma de programação que fosse robusta, segura e portátil, pois o alvo seria uma grande variedade de dispositivos com CPUs diferentes.
@@ -17,6 +21,8 @@ A primeira versão do *Java* foi lançada em 1995, e contou com muitos contribui
 As premissas de prover uma plataforma de programação robusta, segura e portátil cunharam uma promessa que foi muito importante para o Java: "Write Once, Run Anywhere" (WORA).
 
 Olhando para o cenário de desenvolvimento de software na época, a promessa de WORA era algo muito inovador e desafiador. A ideia era que um programa Java poderia ser escrito uma única vez e executado em "qualquer" dispositivo. O "qualquer" dispositivo exigirá uma explicação mais detalhada, que veremos a diante.
+
+
 
 Programas de computador são escritos em linguagens entendíveis pelos seres humano que é o que chamamos de códigos fonte. Para que computadores possam executá-los, eles precisam ser traduzidos para a linguagem que o computador entenda. Esse processo é o que chamamos de compilação.
 
@@ -54,7 +60,7 @@ Outro detalhe interessante ressaltar é que programas compilados são códigos e
 
 E o que não podemos esquecer é que: cada mudança de código fonte irá resultar uma nova compilação.
 
-Olhando agora para uma abordagem utilizando interpretadores, inicialmente parece ser uma solução para o problema de portabilidade, mas não se engane, outros trade-offs precisam ser compreendidos e contornados. Toda a validação, analise léxica, sintatica e semântica serão feitos em tempo de execução. Uma vez que isso só ocorra no momento da execução, alterações intesejadas podem ocorrer no código fonte. Isso é, no mínimo, uma fragilidade no ponte de vista de segurança.
+Olhando agora para uma abordagem utilizando interpretadores, inicialmente parece ser uma solução para o problema de portabilidade, porém outros trade-offs precisam ser compreendidos e contornados. Toda a validação, analise léxica, sintatica e semântica serão feitos em tempo de execução. Uma vez que isso só ocorra no momento da execução, alterações intesejadas podem ocorrer no código fonte. Isso é, no mínimo, uma fragilidade no ponte de vista de segurança.
 
 Apesar de permitir a distribuição dos códigos da aplicação de maneira fácil, código fontes para um interpretador podem apresentar esses detalhes frágeis mencionados não contemplam um cenário de uma plataforma para a execução robusta e segura de aplicações.
 
@@ -62,11 +68,11 @@ Por fim, para atender o _Run Anywhere_, o Java desenvolveu a Java Virtual Machin
 
 No quesito compilação, o Java compila seus códigos fontes em instruções compreensíveis pela JVM, o que chamamos de *bytecode*. No quesito de interpretação, a JVM interpreta esses *bytecodes* executando-os no computador em que ela está instalado.
 
-Mas não se engane! A JVM fornece features cruciais e muito importantes na plataforma Java.
+A seguir, vamos ver as principais features que a JVM oferece para o ecossistema Java.
 
 ==== Java Virtual Machine - JVM
 
-A JVM é o que permite que a promessa _Write Once, Run Anywhere_ ser algo real. A JVM provê várias features que tornam a plataforma Java tão robusta, segura e eficiente como a conhecemos atualmente. Entre essas features, podemos destacar:
+A JVM é o que permite que a promessa _Write Once, Run Anywhere_ ser algo real. A JVM mereceria um capítulo só para ela caso essa fosse a intensão desse livro abordá-la, pois ela provê várias features que tornam a plataforma Java tão robusta, segura e eficiente como a conhecemos atualmente. Caso queira conhecer mais sobre JVM, altamente recomendo o livro _Mastering the Java Virtual Machine: An in-depth guide to JVM internals and performance optimization_ do meu grande amigo _Otavio Santana_. Entre essas features, podemos destacar:
 
 - *Independência de Plataforma*: A JVM permite a execução que qualquer código Java em qualquer dispositivo ou sistema operacional que tenha uma JVM compatível;
 
@@ -84,9 +90,18 @@ A JVM é o que permite que a promessa _Write Once, Run Anywhere_ ser algo real. 
 
 - *Suporte a Linguagens alternativas*: Além do Java, a JVM suporta várias outras linguagens de programação, como Kotlin, Scala e Clojure. A robustez da JVM permite que desenvolvedores possam utilizar linguagens com diferentes paradigmas de programação;
 
-Sem dúvida, a JVM é uma peça central no ecossitema Java. Ela provê um ambiente de execução robusta, segura, portável e eficiente para a execução de aplicações Java e de outras linguagem compatíveis.
+Sem dúvida, a JVM é uma peça muito importante no ecossitema Java. Ela provê um ambiente de execução robusta, segura, portável e eficiente para a execução de aplicações Java e de outras linguagem compatíveis.
+
+=== Linha do tempo do Java
+
+
+
+
+
 
 === Uma introdução a APIs
+
+
 
 == Introdução aos princípios de design de APIs
 
