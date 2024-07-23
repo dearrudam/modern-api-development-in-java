@@ -96,9 +96,6 @@ Sem dúvida, a JVM é uma peça muito importante no ecossitema Java. Ela provê 
 
 
 
-
-
-
 === Uma introdução a APIs
 
 
